@@ -1,14 +1,5 @@
 # React + Vite
 
-## Instalação do  React
-
-
-*npm create-vite* <br>
-*cd nome da pasta* <br>
-*react, javascript* <br>
-*npm i ou install* <br>
-*npm run dev* <br>
-
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
