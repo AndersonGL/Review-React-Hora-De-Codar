@@ -5,6 +5,7 @@
 
 *npm create-vite* <br>
 *cd nome da pasta* <br>
+*react, javascript* <br>
 *npm i ou install* <br>
 *npm run dev* <br>
 
