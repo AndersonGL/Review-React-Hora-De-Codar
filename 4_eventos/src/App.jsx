@@ -1,6 +1,6 @@
 
 import './App.css'
-import EventHandlingExemples from './Componentes/EventHandlingExemples';
+import EventHandlingExemples from './Componentes/EventHandlingExamples';
 
 function App() {
   
