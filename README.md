@@ -31,3 +31,4 @@ npm install ou npm i
 versão do node:  node -version
 npm run dev
 
+reafce cria um estrutura no componente criado
