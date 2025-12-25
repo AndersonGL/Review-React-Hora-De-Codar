@@ -30,11 +30,7 @@ const EventHandlingExamples = () => {
       <br /><br />
 
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Digite seu nome"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+        <input  type="text" placeholder="Digite seu nome" value={name} onChange={(e) => setName(e.target.value)}
         />
         <input type="submit" value="Enviar" />
       </form>
