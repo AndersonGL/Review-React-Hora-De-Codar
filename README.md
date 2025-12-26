@@ -24,7 +24,10 @@ Vite oferece um ambiente moderno e rápido para desenvolvimento React.
 ```bash
 
 
-npm create vite@latest my-app
+npm create vite@latest .        // Cria o projeto já dentro de uma pasta criada
+npm create vite@latest my app   // Cria um projeto do zero salvando em c:
+npx create-next-app@latest . 
+
 npm create vite -> react -> javaScript
 cd my-app
 npm install ou npm i
