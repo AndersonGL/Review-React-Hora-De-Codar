@@ -34,4 +34,4 @@ npm install ou npm i
 versão do node:  node -version
 npm run dev
 
-no vscode: reafce cria um estrutura no componente criado
+no vscode: rafce cria um estrutura no componente criado
