@@ -9,14 +9,24 @@ const TodpApp = () => {
 
 const [todos, setTodos] = useState([]);
 
+// estado de texto da tarefa
+const [inputValue, setInputValue] = useState('');
 
+// adiciona nova tarefa
+
+const handleSubmit = (e) => {
+    e.preventDefault;
+};
 
   return (
 
     <div>
         <h1 className="title">Lista de Tarefas</h1>
         {/* Formulário para adicionar novas tarefas */}
-        
+
+        // eslint-disable-next-line no-undef
+        <form onSubmit={handleSubmit}></form>
+
    
             {/* Lista de tarefas */}
 
@@ -27,3 +37,5 @@ const [todos, setTodos] = useState([]);
 }
 
 export default TodpApp
+
+
