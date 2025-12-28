@@ -1,41 +1,78 @@
-/* eslint-disable no-unused-vars */
-import  {useState} from 'react' 
+import { useState, useEffect } from "react";
+import "./TodoApp.css";
 
-import './TodoApp.css'
+const TodoApp = () => {
+  const [todos, setTodos] = useState([]);
+  const [inputValue, setInputValue] = useState("");
 
-const TodpApp = () => {
+  // carregar do localStorage
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
 
-// Lista de tarefas inicial
+  // salvar no localStorage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
-const [todos, setTodos] = useState([]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-// estado de texto da tarefa
-const [inputValue, setInputValue] = useState('');
+    if (inputValue.trim() !== "") {
+      const newTodo = {
+        id: Date.now(),
+        text: inputValue,
+        completed: false,
+      };
 
-// adiciona nova tarefa
+      setTodos((prev) => [...prev, newTodo]);
+      setInputValue("");
+    }
+  };
 
-const handleSubmit = (e) => {
-    e.preventDefault;
-};
+  // deletar item
+  const handleDelete = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
 
   return (
+    <div className="app-container">
+      <h1 className="title">Lista de Tarefas</h1>
 
-    <div>
-        <h1 className="title">Lista de Tarefas</h1>
-        {/* Formulário para adicionar novas tarefas */}
+      <form onSubmit={handleSubmit} className="form-container">
+        <input
+          type="text"
+          className="input-field"
+          placeholder="Adicione uma nova tarefa..."
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button className="add-button">Adicionar</button>
+      </form>
 
-        // eslint-disable-next-line no-undef
-        <form onSubmit={handleSubmit}></form>
+      {todos.length === 0 && (
+        <p className="empty">Não há tarefas</p>
+      )}
 
-   
-            {/* Lista de tarefas */}
-
-            {todos.length === 0 && <p className="empty">Nenhuma tarefa adicionada.</p>}
-         
+      <ul className="todo-list">
+        {todos.map((todo) => (
+          <li key={todo.id} className="todo-item">
+            {todo.text}
+            <button
+              className="delete-button"
+              onClick={() => handleDelete(todo.id)}
+            >
+              Excluir
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-export default TodpApp
-
-
+export default TodoApp;
